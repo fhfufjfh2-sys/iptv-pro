@@ -1,0 +1,48 @@
+.features {
+  padding: 100px 0;
+  background-color: var(--bg-dark);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.feature-card {
+  background-color: var(--bg-card);
+  padding: 40px 30px;
+  border-radius: var(--border-radius);
+  text-align: center;
+  transition: var(--transition);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  background-color: var(--bg-card-hover);
+  border-color: rgba(255, 193, 7, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  display: inline-block;
+  background: rgba(255, 193, 7, 0.1);
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  border-radius: 50%;
+}
+
+.feature-title {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: var(--text-primary);
+}
+
+.feature-desc {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+}

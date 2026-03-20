@@ -1,0 +1,129 @@
+.reviews {
+  padding: 100px 0;
+  background-color: var(--bg-dark);
+  overflow: hidden;
+}
+
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  /* Fading edges */
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.marquee {
+  display: flex;
+  width: fit-content;
+  animation: scroll-left 30s linear infinite;
+}
+
+.marquee:hover {
+  animation-play-state: paused;
+}
+
+.marquee-content {
+  display: flex;
+  gap: 30px;
+  padding: 0 15px;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Translate leftwards. Since RTL, we translate positively or negatively depending on text direction.
+       In LTR it's -100%/3. In RTL to scroll left to right it's translateX(100%/3).
+       Wait, RTL direction flips flex direction. So moving right to left goes through negative translations or positive?
+       Let's translate normally.
+    */
+    transform: translateX(calc(100% / 3)); 
+  }
+}
+
+/* WhatsApp Card Styling */
+.whatsapp-card {
+  background-color: #0b141a; /* WhatsApp Web Dark BG */
+  background-image: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png');
+  background-blend-mode: overlay;
+  width: 320px;
+  border-radius: 12px;
+  padding: 15px;
+  flex-shrink: 0;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  direction: rtl;
+}
+
+.wa-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 15px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.wa-avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: var(--accent-yellow);
+  background-image: url('https://cdn-icons-png.flaticon.com/512/149/149071.png');
+  background-size: cover;
+}
+
+.wa-name {
+  color: #e9edef;
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+.wa-body {
+  background-color: #005c4b; /* WhatsApp Sender Dark Green */
+  border-radius: 8px 0 8px 8px; /* Sender bubble RTL */
+  padding: 10px 14px 6px;
+  position: relative;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Chat bubble arrow */
+.wa-body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -8px;
+  width: 0;
+  height: 0;
+  border-top: 0px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-left: 12px solid #005c4b;
+}
+
+.wa-body p {
+  color: #e9edef;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  margin-bottom: 5px;
+}
+
+.wa-meta {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 5px;
+}
+
+.wa-time {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.6);
+}
+
+.wa-ticks {
+  font-size: 0.8rem;
+  color: #53bdeb; /* Blue ticks */
+  letter-spacing: -2px;
+  margin-right: -2px;
+}
